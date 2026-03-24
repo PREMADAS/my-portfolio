@@ -87,6 +87,7 @@
             transition: 0.4s;
             opacity: 0;
             transform: translateY(30px);
+            cursor: pointer;
         }
 
         .card.show {
@@ -97,6 +98,18 @@
         .card:hover {
             transform: translateY(-8px);
             background: #334155;
+        }
+
+        /* Description style */
+        .card p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #cbd5f5;
+            display: none;
+        }
+
+        .card.active p {
+            display: block;
         }
 
         .skills,
@@ -126,6 +139,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#activities">Activities</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -170,9 +184,39 @@
         </div>
     </section>
 
+    <section id="activities">
+        <h2>Social Activities</h2>
+        <div class="skills">
+
+            <div class="card">
+                Volunteer at BD Apps Seminar
+                <p>Worked as a volunteer in a seminar organized by BD Apps, helping manage the event and assist participants.</p>
+            </div>
+
+            <div class="card">
+                Assistant Financial Secretary <br>
+                CSE Club, Bandarban University
+                <p>Managed financial tasks and assisted in organizing club activities and events.</p>
+            </div>
+
+            <div class="card">
+                Campus Coordinator <br>
+                YUnet
+                <p>Coordinating campus-level activities and connecting students with opportunities.</p>
+            </div>
+
+            <div class="card">
+                Executive Member <br>
+                BASIS Students' Forum
+                <p>Actively involved in student community activities and organizing programs.</p>
+            </div>
+
+        </div>
+    </section>
+
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: premadas083@gmai.com</p>
+        <p>Email: premadas083@gmail.com</p>
         <p>GitHub: <a href="https://github.com/PREMADAS" target="_blank">github.com/PREMADAS</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/prema-das-a5a250377/" target="_blank">View Profile</a></p>
     </section>
@@ -184,12 +228,20 @@
     <script>
         const cards = document.querySelectorAll('.card');
 
+        // Scroll animation
         window.addEventListener('scroll', () => {
             cards.forEach(card => {
                 const cardTop = card.getBoundingClientRect().top;
                 if (cardTop < window.innerHeight - 50) {
                     card.classList.add('show');
                 }
+            });
+        });
+
+        // Click to show/hide description
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('active');
             });
         });
     </script>
